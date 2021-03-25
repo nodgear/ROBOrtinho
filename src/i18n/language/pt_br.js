@@ -94,6 +94,17 @@ const lang = {
             usage: '',
         },
 
+        voiceInvite: {
+            name: "VoiceInvite",
+            description: "Permite que o usuário entre em seu canal de voz",
+            aliases: ['chamar', 'convite', 'convidar', 'invite'],
+            usage: '@usuário',
+            cooldown: 0,
+
+            notInChannel: "Você não está em um canal de voz, não pode convidar ninguém.",
+            notInPrivate: "Você não precisa convidar ninguém se o canal não é privado."
+        },
+
         /* God please help me, these are the fucking music related translations... */
         loop: {
             name: "Loop",

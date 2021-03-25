@@ -108,3 +108,5 @@ dist
 yarn.lock
 
 *.lock
+
+src/commands/cache/
