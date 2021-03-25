@@ -17,7 +17,9 @@ const lang = {
         missingPermissionConnect: 'Me faltam permissões para entrar aí!',
         missingPermissionSpeak: 'Preciso de permissão pra falar'
     },
-
+    wellcome: {
+        wellcomeText: "Bem vindo ao grupo de sistemas, por favor registre-se nas materias que você esta matriculado(a) no canal registro, sempre que precisar consulte as regras"
+    },
 
     /* Commands */
     command: {
