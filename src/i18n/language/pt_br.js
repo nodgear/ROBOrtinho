@@ -34,7 +34,7 @@ const lang = {
 
             /* general */
             name: 'help',
-            aliases:  ['ajuda', 'socorro'],
+            aliases: ['ajuda', 'socorro'],
             description: 'Exibe os cards de ajuda\nExibe card específico se um argumento for providenciado\nUtilize os controles abaixo para navegar.',
             usage: '`comando`'
         },
@@ -68,54 +68,7 @@ const lang = {
             usage: '`quantidade`\nex: `!limpar 50`'
         },
 
-        qrcode: {
-            name: 'qr',
-            aliases: ['qrcode', 'qrgen'],
-            description: 'Gera QRCode a partir de uma palavra/URL\nÉ possível gerar múltiplos QRCodes no mesmo comando, basta adicionar um espaço entre cada palavra/link.',
-            usage: '`url` ou `palavra`'
-        },
 
-        color: {
-            /* specific */
-
-                /* error */
-            noAttachment: 'Só posso calcular se tiver um anexo',
-            notExpected: 'Formato inesperado, digite `!socorro cores` para mais informações',
-            unableDownload: 'Ops, não consegui baixar essa imagem.\nPor favor entre contato com o cara que troca o meu óleo',
-            mustbeNumber: 'O argumento precisa ser um número\nVocê pode deixar vazio também.\ndigite `!socorro cores` para mais informações',
-
-                /* embed */
-            color: 'Cor',
-            format: 'Formato',
-            type: 'Tipo',
-            title: (emote, name) => `${emote} Paleta gerada com sucesso.`,
-            preview: 'Prévia',
-            requestUser: (user) => `Requisitado por ${user}`,
-            amount: 'Amostras',
-
-
-                /* messages */
-            progress: (emote) => `${emote} Gerando cores, aguarde um momento`,
-            done: (emote, name) => `${emote} Gerei uma seleção a partir de ${name}`,
-            rgb: (r, g, b) => `${r}, ${g}, ${b}`,
-
-
-            name: 'getcolor',
-            aliases: ['gerarpaleta', 'gerarcores', 'cores', 'colors'],
-            description: 'Obtem paleta de cor a partir de arquivos.\nA imagem deve ser enviada junto com o comando\nFormatos suportados: .PNg, .JPG, .SVG e .GIF',
-            usage: '`quantidade`'
-        },
-
-        wiki: {
-            searching: (emote) => `${emote} Buscando na wiki`,
-            randomTitle: (title) => `Resultado aleatório: ${title}`,
-            noResult: (title) => `Nenhum resultado encontrado para ${title}`,
-
-            name: 'wiki',
-            aliases: ['wiki', 'knows', 'what'],
-            description: 'Busca por uma página na wikipedia (ou exibe um conhecimento aleatório)',
-            usage: '`<termo de busca>`'
-        },
 
         setAvatar: {
             loading: (emote) => `${emote} Alterando avatar`,
@@ -139,122 +92,24 @@ const lang = {
             usage: '',
         },
 
-        avatar: {
-            userNotFound: 'Usuário não encontrado.',
-            avatar: (user) => `Avatar de ${user}`,
-
-            name: 'avatar',
-            aliases: ['getavatar', 'getimage'],
-            description: 'Obtem o avatar de um usuário'
-        },
-
-        userInfo: {
-            visibleName: 'Nome visível:',
-            id: 'ID:',
-            rank: 'Função:',
-            joinDate: 'Entrada:',
-            memberSince: 'Conta desde:',
-
-            name: 'userinfo',
-            description: 'Mostra informações sobre um usuário específico',
-            aliases: ['csi', 'quem', 'who', 'infousuario'],
-            usage: '\`@Usuário\`'
-        },
-
-        relatory: {
-            loading: emote => `${emote} Gerando relatório...`,
-            finished: (emote, url) => `${emote} Relatório gerado com sucesso\nAcesso: ${url}`,
-            noVoiceTable: `Você me pediu isso muito cedo, ainda estou inicializando o banco de dados\nAguarde alguns segundos...`,
-            noUser: (id) => `O usuário ${id} não foi encontrado neste servidor, exportando com ID`,
-            promptErase: `Deseja que eu reinicie o contador de presença?`,
-            notErased: `Relatório gerado sem resetar a contagem...`,
-
-            name: 'relatory',
-            description: 'Exporta os valores de presença atuais para a planilha\nExecutar este comando também recomeça a contagem, iniciando um novo relatório.',
-            usage: '`relatorio`',
-            aliases: ['gerarrelatorio', 'relatorio', 'relatório']
-        },
-
-        config: {
-            name: 'config',
-            description: 'Configurações gerais do zé\nUse sem argumentos para ver uma lista completa das configurações',
-            usage: 'config `ação`',
-            aliases: ['config', 'conf', 'settings', 'configurar', 'configurações'],
-            title: "🔧 Opções de configuração do bot.",
-
-            loading: emote => `${emote} Carregando lista de configurações`,
-            currentValue: '📝 Valor atual',
-            configName: "📛 Nome da opção",
-            configDescription: "📜 Descrição",
-            changeQuestion: '> Deseja alterar o valor atual?',
-            typeValuePrompt: '> Digite o novo valor...',
-            restarting: `Feito! Estou reiniciando para aplicar a mudança.`,
-
-            token              : { name: 'Token', desc: 'API Token do bot\nEste token é o que faz a autenticação do bot no discord, alterar significa alterar a conta a qual este bot está vinculado.\nCUIDADO!' },
-            developerID        : { name: 'ID Desenvolvedor', desc: 'Discord User ID do desenvolvedor\nCuidado: Ao alterar este ID você abdica de qualquer suporte prestado pelo desenvolvedor original.' },
-            prefix             : { name: 'Prefixo', desc: 'Prefixo que antecede os comandos\nO prefixo pode conter múltiplos caracteres, mas não espaços.' },
-            language           : { name: 'Linguagem', desc: 'Linguagem a ser utilizada pelo bot\nOpções atuais: en-us & pt-br' },
-            locale             : { name: 'Localização', desc: 'Código de área do bot (geralmente mesmo da linguagem)' },
-            botStatus          : { name: 'Status de presença', desc: 'Status exibido no usuário do bot\nVisível na lista de membros.' },
-            timeZone           : { name: 'Fuso horário', desc: 'Timezone do bot' },
-
-            customActivity     : { name: 'Atividade', desc: 'Mostrar um status personalizado no bot?\nUtilize true/false' },
-            activityStatus     : { name: 'Nome de atividade', desc: 'O que será exibido no status do bot\nNão é permitido palavrões/ofensas.' },
-            activityType       : { name: 'Tipo de atividade', desc: 'Tipo de atividade (LISTENING/STREAMING/PLAYING)' },
-            streamingURL       : { name: 'Link streaming', desc: 'Link da Twitch caso STREAMING seja a opção ativa em activityType' },
-
-            clearCache         : { name: 'Limpa cache?', desc: 'O bot deve apagar os arquivos de cache depois da utilização de comandos que geram arquivos? (true/false)' },
-            cacheInterval      : { name: 'Interavlo de cache', desc: 'Tempo entre cada checagem na pasta de cache (segundos)' },
-            enableWebsocket    : { name: 'Habilitar websocket?', desc: 'Ativar websocket? (true/false)' },
-            websocketAddress   : { name: 'Endereço websocket', desc: 'Endereço do websocket (true/false)' },
-            ownerList: { name: 'Lista de administradores', desc: 'Uma lista de administradores do servidor\nÚtil apenas em casos de emergência, geralmente não precisa ser alterada.' },
-            statusChannel: { name: 'Canal de status', desc: 'Canal onde é exibido o status da agência\nO bot utilizará o canal como identificador de status' },
-            guildID: { name: 'ID do servidor', desc: 'UniqueID do servidor (discord)' },
-            relatorySheet: { name: 'ID Planilha relatório', desc: 'Identificador da planilha de relatório onde as informações de presença são salvas' },
-            YOUTUBE_API_KEY: { name: 'API Key Youtube', desc: 'API Key Token do youtbe para reprodução de músicas' },
-            SOUNDCLOUD_CLIENT_ID: { name: 'API Key soundcloud', desc: 'API Key Token do soundcloud para reprodução de músicas' },
-            MAX_PLAYLIST_SIZE: { name: 'Tamanho máximo da playlist', desc: 'Define quantas músicas são permitidas em uma única playlist.' },
-            PRUNING: { name: 'Prunning', desc: 'O bot deve remover as próprias mensagens depois de um certo tempo?' },
-            STAY_TIME: { name: 'Tempo de presença', desc: 'Tempo pelo qual o bot permanece na sala de voz sem nenhum comando inserido' },
-            DEFAULT_VOLUME: { name: 'Volume padrão', desc: 'Volume no qual o bot inicia ao reproduzir músicas' },
-        },
-
-        expedient: {
-            loading: (emote) => `${emote} Inicializando expediente`,
-            done: (emote) => `${emote} Agência aberta`,
-
-            name: 'expediente',
-            aliases: ['expediente', 'unlock', 'comecoexpediente'],
-            usage: ''
-        },
-
-        expedientFinish: {
-            loading: (emote) => `${emote} Finalizando expediente`,
-            done: (emote) => `${emote} Agência fechada`,
-
-            name: 'fimexpediente',
-            aliases: ['fimexpediente', 'lock', 'fimexpediente'],
-            usage: ''
-        },
-
         /* God please help me, these are the fucking music related translations... */
         loop: {
             name: "Loop",
             description: "Alterna a repetição da música",
-            aliases: [ 'l', 'loop', 'repeticao', 'repetição', 'repetir'],
+            aliases: ['l', 'loop', 'repeticao', 'repetição', 'repetir'],
             cooldown: 3
         },
 
         lyrics: {
-        
-                    name: "Lyrics",
-                    description: 'Encontra e exibe a letra da música em reprodução',
-                    aliases: ['ly', 'lyrics', 'letra'],
-        
-                    errorNotQueue: 'Nenhuma música na playlist.',
-                    lyricsNotFound: 'Letra não encontrada',
-                    title: title => `Vagalume.com do Zé: ${title}`
-        
+
+            name: "Lyrics",
+            description: 'Encontra e exibe a letra da música em reprodução',
+            aliases: ['ly', 'lyrics', 'letra'],
+
+            errorNotQueue: 'Nenhuma música na playlist.',
+            lyricsNotFound: 'Letra não encontrada',
+            title: title => `Vagalume.com do Zé: ${title}`
+
         },
 
         move: {
@@ -302,7 +157,7 @@ const lang = {
         },
 
         pause: {
-            name:"Pause",
+            name: "Pause",
             description: "Pausa a música em andamento",
             aliases: ['ps', 'pause', 'pausa', 'pausar'],
             usage: '',
@@ -333,7 +188,7 @@ const lang = {
             errorNotChannel: 'Você precisar estar em um canal de voz.'
         },
 
-        stop :{
+        stop: {
             name: "Stop",
             description: "Para a reprodução de músicas\nEste comando também limpa a playlist",
             aliases: ['stop', 's', 'parar', 'pare'],
