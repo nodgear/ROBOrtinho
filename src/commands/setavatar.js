@@ -6,7 +6,7 @@ module.exports = {
         const done       = utils.getEmoji(message.guild, 'check')
         const attachment = message.attachments.first();
 
-        const loadMessage = message.channel.send( i18n("command.color.loading", loading) )
+        const loadMessage = await message.channel.send( i18n("command.color.loading", loading) )
 
         if (!attachment) {
             message.channel.send( i18n("command.color.noAttachment") )
