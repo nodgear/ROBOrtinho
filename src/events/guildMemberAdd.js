@@ -4,7 +4,7 @@ const { i18n }    = require('../i18n/i18n.js');
 const log     = require('../utils/log.js');
 
 async function event(client, member) {
-    member.send(i18n("wellcome.welcomeText"));
+    member.send(i18n("welcome.welcomeText"));
     member.roles.add("824432846693335070");
 }
 
