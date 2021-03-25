@@ -48,33 +48,6 @@ module.exports = {
             return false;
         }
     },
-
-    recoverFromDead : function (client) {
-
-        const voiceChannels = client.channels.cache.filter( channel => channel.type !== 'text');
-    
-        voiceChannels.forEach( channel => {
-            const usersVC = channel.members.filter( member => member.voice.channel !== null)
-            if (!usersVC || usersVC === null)
-                return;
-    
-            usersVC.forEach( member => {
-                const vcRecordMatch = client.vcUsers.filter( prop => prop.user === member.id)
-                const user = member.user;
-    
-                if (vcRecordMatch.length > 0)
-                    return;
-    
-                client.voiceRecord.ensure(`${user.id}`, {
-                    user: user.id,
-                    voiceTime: 0
-                });
-    
-                client.vcUsers.push( {user: user.id, channel: channel.name} );
-                log.debug(`Recovering voice calculation of ${user.username} : Currently on <"${channel.name}">`)
-            });
-        })
-    },
     canModifyQueue : member => {
         const { channelID } = member.voice;
         const botChannel = member.guild.voice.channelID;
