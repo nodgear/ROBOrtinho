@@ -22,10 +22,6 @@ async function event(client, oldState, newState) {
         log.voice('STATE', user, newVC, "Moved to");
     }
 
-    client.voiceRecord.ensure(`${user.id}`, {
-        user: user.id,
-        voiceTime: 0
-    });
 
 }
 
