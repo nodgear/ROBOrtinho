@@ -35,51 +35,50 @@ module.exports = {
             commandList.push(
                 new MessageEmbed()
                 .setTitle( i18n("command.help.title") )
-                .addField(command.usage == '' ? `${config.prefix}${command.name}` : `${config.prefix}${command.name} ${command.usage}`, command.description)
+                .addField(command.usage == '' ? `${config.prefix}${command.name}` : `${config.prefix}${command.name} ${command.usage || ''}`, command.description)
                 .addFields(
-                    { name: i18n("command.aliases"), value: command.aliases != '' ? command.aliases.join(', ') : i18n("none"), inline: true },
+                    { name: i18n("command.aliases"), value: command.aliases != '' ? (typeof command.aliases == 'object' ? command.aliases.join(', ') :  i18n("none")) : i18n("none"), inline: true },
                     { name:  i18n("command.cooldown"), value: command.cooldown, inline: true },
                     { name:  i18n("command.permission"), value: command.permission == '' ? command.devOnly ?  i18n("command.developer") :  i18n("command.anyone") : command.permission, inline: true}
                 )
                 .setColor(10181046)
                 .setFooter( i18n("command.help.requestUser", message.author.username), message.author.avatarURL() )
             )});
-
-        ReactionCollector.paginator({
-            botMessage: infoMessage,
-            reactions: {
-                '⏪': async (_reaction, _collector, botMessage, pages) => {
-                    pages.index--;
-                    if (pages.index <= 0) pages.index = 0;
-                    await botMessage.edit({ embed: pages[pages.index] });
+            ReactionCollector.paginator({
+                botMessage: infoMessage,
+                reactions: {
+                    '⏪': async (_reaction, _collector, botMessage, pages) => {
+                        pages.index--;
+                        if (pages.index <= 0) pages.index = 0;
+                        await botMessage.edit({ embed: pages[pages.index] });
+                    },
+                    '⏹️': async (_reaction, collector, _botMessage, _pages) => {
+                        collector.stop();
+                    },
+                    '⏩': async (_reaction, _collector, botMessage, pages) => {
+                        pages.index++;
+                        if (pages.index >= pages.length) pages.index = pages.length - 1;
+                        await botMessage.edit({ embed: pages[pages.index] });
+                    }
                 },
-                '⏹️': async (_reaction, collector, _botMessage, _pages) => {
-                    collector.stop();
-                },
-                '⏩': async (_reaction, _collector, botMessage, pages) => {
-                    pages.index++;
-                    if (pages.index >= pages.length) pages.index = pages.length - 1;
-                    await botMessage.edit({ embed: pages[pages.index] });
+                user: message.author,
+                pages: commandList,
+                collectorOptions: {
+                    time: 60000
                 }
-            },
-            user: message.author,
-            pages: commandList,
-            collectorOptions: {
-                time: 60000
-            }
-        }).then( () => {
-            infoMessage.edit('', { timeout: 500 });
-            message.delete({ timeout: 500 });
-        });
-
-    },
-
-    name: i18n("command.help.name"),
-    description:  i18n("command.help.description"),
-    aliases:  i18n("command.help.aliases"),
-    usage: i18n("command.help.usage"),
-    devOnly: false,
-    permission: '',
-    cooldown: 0,
-    args: false
-}
+            }).then( () => {
+                infoMessage.edit('', { timeout: 500 });
+                message.delete({ timeout: 500 });
+            });
+    
+        },
+    
+        name: i18n("command.help.name"),
+        description:  i18n("command.help.description"),
+        aliases:  i18n("command.help.aliases"),
+        usage: i18n("command.help.usage"),
+        devOnly: false,
+        permission: '',
+        cooldown: 0,
+        args: false
+    }
