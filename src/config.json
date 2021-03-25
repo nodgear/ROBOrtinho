@@ -19,7 +19,7 @@
     },
     "registerChannel": "803055480850350170",
     "guildID": "811317591346774097",
-    "YOUTUBE_API_KEY": "AIzaSyABxAL1s0ByJgnV4O2eQEZD-C6IZq1aTog",
+    "YOUTUBE_API_KEY": "",
     "SOUNDCLOUD_CLIENT_ID": "--none",
     "MAX_PLAYLIST_SIZE": 10,
     "PRUNING": true,
