@@ -43,7 +43,7 @@ module.exports = {
                         },
                         {
                             id: newMember.member.user.id,
-                            allow: ['CONNECT', 'MUTE_MEMBERS', 'DEAFEN_MEMBERS', 'CONNECT', 'MOVE_MEMBERS']
+                            allow: ['CONNECT', 'MUTE_MEMBERS', 'DEAFEN_MEMBERS', 'MOVE_MEMBERS']
                         }
                     ]
                 })
@@ -135,17 +135,7 @@ module.exports = {
                     type: "voice",
                     parent: newMember.channel.parent,
                     userLimit: settings.userLimit,
-                    reason: settings.reason,
-                    permissionOverwrites: [
-                        {
-                            id: everyone.id,
-                            deny: ['CONNECT'],
-                        },
-                        {
-                            id: newMember.member.user.id,
-                            allow: ['CONNECT', 'MUTE_MEMBERS', 'DEAFEN_MEMBERS', 'CONNECT', 'MOVE_MEMBERS']
-                        }
-                    ]
+                    reason: settings.reason
                 })
                 .then(cloneChannel => newMember.setChannel(cloneChannel))
                 .catch( console.log() )
