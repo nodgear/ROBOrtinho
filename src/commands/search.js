@@ -12,7 +12,7 @@ module.exports = {
   run : async (client, message, args, utils) =>  {
     if (!args.length)
       return message
-        .reply(i18nmf("search.usageReply", { prefix: message.client.prefix, name: module.exports.name }))
+        .reply(i18n("search.usageReply", { prefix: message.client.prefix, name: module.exports.name }))
         .catch(console.error);
     if (message.channel.activeCollector) return message.reply(i18n("search.errorAlreadyCollector"));
     if (!message.member.voice.channel)
@@ -22,7 +22,7 @@ module.exports = {
 
     let resultsEmbed = new MessageEmbed()
       .setTitle(i18n("search.resultEmbedTtile"))
-      .setDescription(i18nmf("search.resultEmbedDesc", { search: search }))
+      .setDescription(i18n("search.resultEmbedDesc", { search: search }))
       .setColor("#F8AA2A");
 
     try {
