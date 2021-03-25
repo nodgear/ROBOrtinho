@@ -28,6 +28,7 @@
     "moment": "^2.29.1",
     "opus": "^0.0.0",
     "qrcode": "^1.4.4",
+    "random-word-slugs": "^0.0.2",
     "simple-youtube-api": "^5.2.1",
     "soundcloud-downloader": "^0.2.4",
     "split-camelcase-to-words": "^1.0.1",
