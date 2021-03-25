@@ -7,8 +7,6 @@ const { i18n }                                = require("../i18n/i18n.js");
 
 
 module.exports = {
-  name: "search",
-  description: i18n("search.description"),
   run : async (client, message, args, utils) =>  {
     if (!args.length)
       return message
@@ -61,5 +59,13 @@ module.exports = {
       message.channel.activeCollector = false;
       message.reply(error.message).catch(console.error);
     }
-  }
+  },
+
+  name: i18n("command.search.name"),
+  description: i18n("command.search.description"),
+  aliases: i18n("command.search.aliases"),
+  usage: i18n("command.search.usage"),
+  devOnly: false,
+  cooldown: 5,
+  args: false
 };
