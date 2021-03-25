@@ -1,5 +1,5 @@
 {
-    "token": "ODAyNzgzMTk5NDYxMjQ0OTY4.YA0QHQ.Qr0nQHQQ5UCMKfwZ5VaCqeC9iGk",
+    "token": "",
     "developerID": "175314117924487168",
     "prefix": ".",
     "language": "pt_br",
@@ -15,22 +15,10 @@
     "enableWebsocket": false,
     "websocketAddress": "ws://localhost:3000",
     "ownerList": {
-        "208604948659699712": true,
-        "175314117924487168": true,
-        "781933924930289687": true
+        "441448978782093313": true
     },
-    "statusChannel": "803055480850350170",
-    "nonAffectedChannels": {
-        "796480280273748019" : true,
-        "796489645856260116" : true,
-        "796491028999307344" : true,
-        "796491333664505896" : true,
-        "797270355265716254" : true,
-        "799399745072267264" : true,
-        "806567766198059068" : true
-    },
-    "guildID": "796480280273748018",
-    "relatorySheet": "1r_LEc7cgXpFVUblHrElcmmda5-Jg8TMTbAx1cBEykPE",
+    "registerChannel": "803055480850350170",
+    "guildID": "811317591346774097",
     "YOUTUBE_API_KEY": "AIzaSyABxAL1s0ByJgnV4O2eQEZD-C6IZq1aTog",
     "SOUNDCLOUD_CLIENT_ID": "--none",
     "MAX_PLAYLIST_SIZE": 10,
